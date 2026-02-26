@@ -6,37 +6,31 @@ public class PalindromeCheckerApp {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter a string to check palindrome: ");
-        String input = scanner.nextLine();
+        System.out.print("Enter a string to check: ");
+        String original = scanner.nextLine();
 
-        Stack<Character> stack = new Stack<>();
-        Queue<Character> queue = new LinkedList<>();
+        String reversed = "";
 
-        // Enqueue and Push characters
-        for (int i = 0; i < input.length(); i++) {
-            char ch = input.charAt(i);
-            stack.push(ch);      // LIFO
-            queue.add(ch);       // FIFO
+        // Iterate the string in reverse order to build the reversed string
+        for (int i = original.length() - 1; i >= 0; i--) {
+            reversed += original.charAt(i);
         }
 
-        boolean isPalindrome = true;
+        // Compare original and reversed strings
+        boolean isPalindrome = original.equals(reversed);
 
-        // Compare dequeue vs pop
-        while (!stack.isEmpty()) {
-            if (!stack.pop().equals(queue.remove())) {
-                isPalindrome = false;
-                break;
-            }
-        }
-
-        // Print result
+        // Display the result
+        System.out.println("Original String: " + original);
+        System.out.println("Reversed String: " + reversed);
         if (isPalindrome) {
-            System.out.println(input + " is a Palindrome");
+            System.out.println("Result: The string is a palindrome.");
         } else {
-            System.out.println(input + " is NOT a Palindrome");
+            System.out.println("Result: The string is NOT a palindrome.");
         }
 
         scanner.close();
+    }
+}
 
 
     }
