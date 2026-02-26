@@ -4,36 +4,22 @@ public class PalindromeCheckerApp {
        System.out.println("Version: 1.0");
        System.out.println("System initialised successfully.");
 
-        String word = "level";
+        String word = "radar";
         System.out.println("Checking word: " + word);
-        char[] chars = word.toCharArray();
-        int start = 0;
-        int end = chars.length - 1;
-        boolean isPalindrome = true;
-        while (start < end)
-        {
-            if (chars[start] != chars[end])
-            {
-                isPalindrome = false;
-                break;
-            }
-            start++;
-            end--;
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < word.length(); i++) {
+            stack.push(word.charAt(i));
         }
-        if (isPalindrome)
-        {
+        String reversed = "";
+        while (!stack.isEmpty()) {
+            reversed = reversed + stack.pop();
+        }
+        if (word.equals(reversed)) {
             System.out.println("Result: \"" + word + "\" is a palindrome.");
-        }
-        else
-        {
+        } else {
             System.out.println("Result: \"" + word + "\" is NOT a palindrome.");
         }
         System.out.println("Program finished.");
     }
 }
 
-
-
-    }
-
-}
