@@ -4,33 +4,34 @@ public class PalindromeCheckerApp {
        System.out.println("Version: 1.0");
        System.out.println("System initialised successfully.");
 
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter a string to check: ");
-        String original = scanner.nextLine();
-
-        String reversed = "";
-
-        // Iterate the string in reverse order to build the reversed string
-        for (int i = original.length() - 1; i >= 0; i--) {
-            reversed += original.charAt(i);
+        String word = "level";
+        System.out.println("Checking word: " + word);
+        char[] chars = word.toCharArray();
+        int start = 0;
+        int end = chars.length - 1;
+        boolean isPalindrome = true;
+        while (start < end)
+        {
+            if (chars[start] != chars[end])
+            {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
         }
-
-        // Compare original and reversed strings
-        boolean isPalindrome = original.equals(reversed);
-
-        // Display the result
-        System.out.println("Original String: " + original);
-        System.out.println("Reversed String: " + reversed);
-        if (isPalindrome) {
-            System.out.println("Result: The string is a palindrome.");
-        } else {
-            System.out.println("Result: The string is NOT a palindrome.");
+        if (isPalindrome)
+        {
+            System.out.println("Result: \"" + word + "\" is a palindrome.");
         }
-
-        scanner.close();
+        else
+        {
+            System.out.println("Result: \"" + word + "\" is NOT a palindrome.");
+        }
+        System.out.println("Program finished.");
     }
 }
+
 
 
     }
